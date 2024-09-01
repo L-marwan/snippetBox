@@ -91,7 +91,7 @@ func main() {
 	}
 
 	infoLog.Printf("Starting on port %s", *addr)
-	err = srv.ListenAndServeTLS("./tls/cert.pem", "./tls/key.pem")
+	err = srv.ListenAndServeTLS("C:\\Users\\pc\\Documents\\lab\\snippetbox\\tls\\cert.pem", "C:\\Users\\pc\\Documents\\lab\\snippetbox\\tls\\key.pem")
 
 	errorLog.Fatal(err)
 }
