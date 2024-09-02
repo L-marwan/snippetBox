@@ -17,7 +17,7 @@ func (app *application) routes() http.Handler {
 
 	fileServer := http.FileServer(neuteredFileSysem{http.Dir("./ui/static/")})
 
-	dynamic := alice.New(app.sessionManager.LoadAndSave, noSurf)
+	dynamic := alice.New(app.sessionManager.LoadAndSave, noSurf, app.authenticate)
 
 	//unprotected
 	router.Handler(http.MethodGet, "/static/*filepath", http.StripPrefix("/static", fileServer))
