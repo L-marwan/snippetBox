@@ -12,6 +12,16 @@ func (m *UserModel) Insert(name, email, password string) error {
 		return nil
 	}
 }
+
+func (m *UserModel) Get(id int) (*models.User, error) {
+	switch id {
+	case 1:
+		return &models.User{Email: "user1@example.com", Name: "user1"}, nil
+	default:
+		return nil, models.ErrNoRecord
+	}
+}
+
 func (m *UserModel) Authenticate(email, password string) (int, error) {
 	if email == "user1@example.com" && password == "pa$$word" {
 		return 1, nil
